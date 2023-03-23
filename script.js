@@ -8,25 +8,17 @@ class Animal {
   }
 
   makeSound() {
-    console.log(`The ${this.species} makes a sound`);
+    console.log("The " + this.species + " makes a sound");
   }
 }
 
 class Cat extends Animal {
-  constructor(species) {
-    super(species);
-  }
-
   purr() {
     console.log("purr");
   }
 }
 
 class Dog extends Animal {
-  constructor(species) {
-    super(species);
-  }
-
   bark() {
     console.log("woof");
   }
@@ -36,3 +28,18 @@ class Dog extends Animal {
 window.Animal = Animal;
 window.Dog = Dog;
 window.Cat = Cat;
+
+function getElementsByAttribute(attribute, value) {
+  const elementsWithAttribute = [];
+  const allElements = document.getElementsByTagName("*");
+  
+  for (let i = 0; i < allElements.length; i++) {
+    if (allElements[i].getAttribute(attribute) === value) {
+      elementsWithAttribute.push(allElements[i]);
+    }
+  }
+  
+  return elementsWithAttribute;
+}
+ const elementsWithBarBaz = getElementsByAttribute("data-bar", "baz");
+    console.log(elementsWithBarBaz);
